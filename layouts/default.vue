@@ -1,5 +1,15 @@
 <template>
   <div>
+    <nav>
+      <ul>
+        <li>
+          <nuxt-link to="/">Home</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/sample-page">About</nuxt-link>
+        </li>
+      </ul>
+    </nav>
     <Nuxt />
   </div>
 </template>
@@ -22,6 +32,16 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .button--green {

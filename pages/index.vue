@@ -3,6 +3,11 @@
     <div>
       <Logo />
       <h1 class="title">full-stack-app</h1>
+
+      <div>
+        <strong>Rendered By:</strong>
+        <span>{{ renderedBy }}</span>
+      </div>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -26,7 +31,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  asyncData() {
+    let renderedBy
+    if (process.server) renderedBy = 'Server'
+    else renderedBy = 'Client'
+
+    return { renderedBy }
+  }
+}
 </script>
 
 <style>
@@ -35,14 +48,6 @@ export default {}
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
