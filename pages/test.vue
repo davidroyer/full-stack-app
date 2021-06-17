@@ -1,25 +1,7 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">full-stack-app</h1>
-
-      <div>
-        <strong>Rendered By:</strong>
-        <span>{{ renderedBy }}</span>
-      </div>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <button class="button--grey" @click="testApi">Test API</button>
-      </div>
-    </div>
+    <h1 class="title">Testing pocket request on async</h1>
+    <pre>{{ testData }}</pre>
   </div>
 </template>
 
@@ -30,21 +12,21 @@ const redirect_uri = 'http://localhost:3000/pocket-callback'
 const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 
 export default {
-  asyncData({ $axios }) {
+  async asyncData({ $axios }) {
     let renderedBy
     if (process.server) renderedBy = 'Server'
     else renderedBy = 'Client'
 
-    // const { data } = await $axios.post(
-    //   'https://getpocket.com/v3/oauth/authorize',
-    //   {
-    //     consumer_key,
-    //     redirect_uri
-    //   }
-    // )
+    const { data } = await $axios.post(
+      'https://getpocket.com/v3/oauth/authorize',
+      {
+        consumer_key,
+        redirect_uri
+      }
+    )
 
     // console.log('Pocket -> data', data)
-    return { renderedBy }
+    return { renderedBy, testData: data }
   },
 
   methods: {
