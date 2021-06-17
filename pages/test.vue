@@ -6,8 +6,6 @@
 </template>
 
 <script>
-/* eslint-disable camelcase */
-
 const redirect_uri = 'http://localhost:3000/pocket-callback'
 const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 
@@ -17,27 +15,13 @@ export default {
     if (process.server) renderedBy = 'Server'
     else renderedBy = 'Client'
 
-    const { data } = await $axios.post(
-      'https://getpocket.com/v3/oauth/authorize',
-      {
-        consumer_key,
-        redirect_uri
-      }
-    )
+    const { data } = await $axios.post('/papi/oauth/request', {
+      consumer_key,
+      redirect_uri
+    })
 
     // console.log('Pocket -> data', data)
     return { renderedBy, testData: data }
-  },
-
-  methods: {
-    async testApi() {
-      const { data } = await this.$axios.post('/papi/oauth/request', {
-        consumer_key,
-        redirect_uri
-      })
-
-      console.log('Pocket -> data', data)
-    }
   }
 }
 </script>

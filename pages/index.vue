@@ -26,7 +26,7 @@
 
 <script>
 /* eslint-disable camelcase */
-
+/* eslint-disable no-unused-vars */
 const redirect_uri = 'http://localhost:3000/pocket-callback'
 const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 
@@ -55,12 +55,26 @@ export default {
     },
 
     async testApi() {
+      const { redirect_uri } = this.$config
+
+      console.log(
+        '🚀 ~ file: index.vue ~ line 57 ~ testApi ~ redirect_uri',
+        redirect_uri
+      )
+
       const { data } = await this.$axios.post('/papi/oauth/request', {
         consumer_key,
         redirect_uri
       })
 
+      localStorage.setItem('code', data.code)
+
+      const pocketRedirectUrl = `https://getpocket.com/auth/authorize?request_token=${data.code}&redirect_uri=${redirect_uri}`
+
+      // // window.open(pocketRedirectUrl)
       console.log('testApi -> data', data)
+
+      window.location = pocketRedirectUrl
     }
   }
 }

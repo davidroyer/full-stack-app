@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import axios from 'axios'
 
 const express = require('express')
@@ -33,6 +31,8 @@ app.get('/pocket', async (req, res) => {
 
   res.json(data)
 })
+
+app.get('/callback', async (req, res) => {})
 
 app.get('/login', async (req, res) => {
   // const SECRET = process.env.TOKEN_SECRET

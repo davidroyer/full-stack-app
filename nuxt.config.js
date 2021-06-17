@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV !== 'production'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -13,6 +15,11 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
+  publicRuntimeConfig: {
+    redirect_uri: isDev
+      ? 'http://localhost:3000/pocket-callback'
+      : 'https://nuxt-full-stack.herokuapp.com/pocket-callback'
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
