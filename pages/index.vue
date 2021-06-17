@@ -17,6 +17,7 @@
         >
           Documentation
         </a>
+        <button class="button--grey" @click="testMyApi">Test My API</button>
         <button class="button--grey" @click="testApi">Test API</button>
       </div>
     </div>
@@ -48,16 +49,18 @@ export default {
   },
 
   methods: {
-    async testApi() {
-      const { data } = await this.$axios.post(
-        'https://getpocket.com/v3/oauth/authorize',
-        {
-          consumer_key,
-          redirect_uri
-        }
-      )
+    async testMyApi() {
+      const response = await this.$axios.get('/api/pocket')
+      console.log('testMyApi -> response', response)
+    },
 
-      console.log('Pocket -> data', data)
+    async testApi() {
+      const { data } = await this.$axios.post('/papi/oauth/request', {
+        consumer_key,
+        redirect_uri
+      })
+
+      console.log('testApi -> data', data)
     }
   }
 }

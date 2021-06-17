@@ -31,13 +31,10 @@ export default {
 
   methods: {
     async testApi() {
-      const { data } = await this.$axios.post(
-        'https://getpocket.com/v3/oauth/authorize',
-        {
-          consumer_key,
-          redirect_uri
-        }
-      )
+      const { data } = await this.$axios.post('/papi/oauth/request', {
+        consumer_key,
+        redirect_uri
+      })
 
       console.log('Pocket -> data', data)
     }

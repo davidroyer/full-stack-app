@@ -37,19 +37,19 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // proxy: true
-    // headers: {
-    //   'X-Accept': 'application/json'
-    // }
+    proxy: true,
+    headers: {
+      'X-Accept': 'application/json'
+    }
   },
 
-  // proxy: {
-  //   '/papi/': {
-  //     target: 'https://getpocket.com/v3/',
-  //     pathRewrite: { '^/papi/': '' }
-  //     // changeOrigin: true
-  //   }
-  // },
+  proxy: {
+    '/papi/': {
+      target: 'https://getpocket.com/v3/',
+      pathRewrite: { '^/papi/': '' }
+      // changeOrigin: true
+    }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
