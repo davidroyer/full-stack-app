@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">full-stack-app</h1>
+    <client-only>
+      <VueEditor v-model="content" />
+    </client-only>
 
+    <hr />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <section v-html="content" />
+    <div>
       <div>
         <strong>Rendered By:</strong>
         <span>{{ renderedBy }}</span>
@@ -27,10 +31,12 @@
 <script>
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
+// import { VueEditor } from 'vue2-editor'
 const redirect_uri = 'http://localhost:3000/pocket-callback'
 const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 
 export default {
+  // components: { VueEditor },
   asyncData({ $axios }) {
     let renderedBy
     if (process.server) renderedBy = 'Server'
@@ -47,6 +53,10 @@ export default {
     // console.log('Pocket -> data', data)
     return { renderedBy }
   },
+
+  data: () => ({
+    content: ''
+  }),
 
   methods: {
     async testMyApi() {
@@ -68,6 +78,9 @@ export default {
       })
 
       localStorage.setItem('code', data.code)
+      this.$cookies.set('code', data.code, {
+        expires: new Date(2024, 11)
+      })
 
       const pocketRedirectUrl = `https://getpocket.com/auth/authorize?request_token=${data.code}&redirect_uri=${redirect_uri}`
 

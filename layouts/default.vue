@@ -43,8 +43,9 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  padding: 1rem;
+  /* align-items: center; */
+  /* text-align: center; */
 }
 
 .button--green {

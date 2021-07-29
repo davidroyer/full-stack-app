@@ -21,7 +21,7 @@ export default {
       : 'https://nuxt-full-stack.herokuapp.com/pocket-callback'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/vue2-editor.client.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,7 +31,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'cookie-universal-nuxt'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

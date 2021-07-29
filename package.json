@@ -14,10 +14,13 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
+    "cookie-parser": "^1.4.5",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.9.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "vue2-editor": "^2.10.3-ssr.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

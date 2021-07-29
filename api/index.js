@@ -1,4 +1,6 @@
 import axios from 'axios'
+import cookieParser from 'cookie-parser'
+console.log('cookieParser', cookieParser)
 
 const express = require('express')
 const app = express()
@@ -6,6 +8,7 @@ const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 
 const generateAccessToken = (user) => {
   return jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: '1800s' })
@@ -22,6 +25,10 @@ const pocketApi = axios.create({
   }
 })
 
+app.get('/test', (req, res) => {
+  res.send(req.cookies)
+})
+
 app.get('/pocket', async (req, res) => {
   const { data } = await pocketApi.post('/oauth/request', {
     consumer_key,
@@ -32,7 +39,9 @@ app.get('/pocket', async (req, res) => {
   res.json(data)
 })
 
-app.get('/callback', async (req, res) => {})
+app.get('/callback', (req, res) => {
+  res.send('HELLO')
+})
 
 app.get('/login', async (req, res) => {
   // const SECRET = process.env.TOKEN_SECRET
