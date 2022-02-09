@@ -1,10 +1,17 @@
 <template>
   <div class="container">
+    <hr />
     <client-only>
-      <VueEditor v-model="content" />
+      <VueEditor />
     </client-only>
 
+    <!-- <VueEditor v-model="content"></VueEditor> -->
+
+    <!-- <VEditor /> -->
+    <!-- <VueEditor v-model="content" /> -->
+
     <hr />
+
     <!-- eslint-disable-next-line vue/no-v-html -->
     <section v-html="content" />
     <div>
@@ -32,6 +39,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 // import { VueEditor } from 'vue2-editor'
+// import { VEditor } from 'v-writer'
+
 const redirect_uri = 'http://localhost:3000/pocket-callback'
 const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 

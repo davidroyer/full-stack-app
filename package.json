@@ -20,7 +20,8 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "nuxt": "^2.15.3",
-    "vue2-editor": "^2.10.3-ssr.1"
+    "v-writer": "^0.0.2",
+    "vue2-editor": "^2.10.3-ssr.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
