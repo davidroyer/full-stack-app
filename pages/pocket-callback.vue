@@ -19,11 +19,10 @@ export default {
       code
     })
 
-    $cookies.set('userName', data.username)
-
-    $cookies.set('access_token', data.access_token, {
-      expires: new Date(2024, 11)
-    })
+    await $cookies.set('userName', data.username)
+    console.log('THE ACCESS TOKEN ->', data.access_token)
+    await $cookies.set('access_token', data.access_token)
+    localStorage.setItem('access_token', data.access_token)
     // }
     store.commit('setSignedIn', true)
     store.commit('testCommit', 'WORKED FROM CALLBACK')
