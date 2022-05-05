@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-4">
     <nav>
       <ul>
         <li>
@@ -16,10 +16,21 @@
         </li>
       </ul>
     </nav>
+
+    <div v-if="userName"><strong>LOGGED IN: </strong> {{ userName }}</div>
     <Nuxt />
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    userName() {
+      return this.$store.state.userName
+    }
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -75,7 +86,7 @@ html {
   margin-left: 15px;
 }
 
-.button--grey:hover {
+.button--grey:hover:not(:disabled) {
   color: #fff;
   background-color: #35495e;
 }

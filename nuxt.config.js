@@ -16,6 +16,7 @@ export default {
   css: [],
 
   publicRuntimeConfig: {
+    consumer_key: '92797-bd626bd523c3a7ab5ad3822b',
     redirect_uri: isDev
       ? 'http://localhost:3000/pocket-callback'
       : 'https://nuxt-full-stack.herokuapp.com/pocket-callback'
@@ -41,9 +42,13 @@ export default {
     'vue2-editor/nuxt',
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'bootstrap-vue/nuxt'
   ],
-
+  bootstrapVue: {
+    // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)
+    icons: true
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
@@ -68,7 +73,9 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: [({ isServer }) => 'vue-typeahead-bootstrap']
+  },
 
   serverMiddleware: {
     '/api': '@/api'
