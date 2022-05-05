@@ -24,9 +24,9 @@ export const actions = {
    *    user in the State
    *
    */
-  nuxtServerInit({ commit }, { req }) {
+  nuxtClientInit({ commit }, { req }) {
     console.log(
-      'nuxtServerInit ~ nuxtServerInit -> this.$cookies',
+      'nuxtClientInit ~ nuxtClientInit -> this.$cookies',
       this.$cookies
     )
     if (this.$cookies.get('access_token')) {

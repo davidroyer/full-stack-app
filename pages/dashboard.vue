@@ -63,7 +63,6 @@ export default {
 
     return {
       access_token: $cookies.get('access_token') || null,
-
       tags
     }
   },

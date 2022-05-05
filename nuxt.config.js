@@ -12,6 +12,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
+  mode: 'spa',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -36,10 +37,11 @@ export default {
     'cookie-universal-nuxt'
   ],
 
+  plugins: ['@/plugins/client-init.js'],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    'vue2-editor/nuxt',
+    // 'vue2-editor/nuxt',
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
@@ -79,5 +81,9 @@ export default {
 
   serverMiddleware: {
     '/api': '@/api'
+  },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#007bff'
   }
 }

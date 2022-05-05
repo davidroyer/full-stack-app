@@ -11,20 +11,24 @@ const consumer_key = '92797-bd626bd523c3a7ab5ad3822b'
 
 export default {
   async middleware({ app, store, $cookies, redirect, $axios }) {
-    if (process.server) {
-      const code = $cookies.get('code')
+    // if (process.server) {
+    const code = $cookies.get('code')
 
-      const { data } = await $axios.post('/papi/oauth/authorize', {
-        consumer_key,
-        code
-      })
+    const { data } = await $axios.post('/papi/oauth/authorize', {
+      consumer_key,
+      code
+    })
 
-      $cookies.set('userName', data.username)
+    $cookies.set('userName', data.username)
 
-      $cookies.set('access_token', data.access_token, {
-        expires: new Date(2024, 11)
-      })
-    }
+    $cookies.set('access_token', data.access_token, {
+      expires: new Date(2024, 11)
+    })
+    // }
+    store.commit('setSignedIn', true)
+    store.commit('testCommit', 'WORKED FROM CALLBACK')
+    store.commit('setUserName', $cookies.get('userName'))
+
     return redirect('/dashboard')
   }
   // data: () => ({
