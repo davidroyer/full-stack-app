@@ -22,13 +22,35 @@
       class="font-bold uppercase mb-2 text-2xl text-gray-600"
       v-text="selectedTag"
     />
-    <div
+    <div v-if="items.length > 0" class="cards-wrapper">
+      <b-card
+        v-for="item in items"
+        :key="item.item_id"
+        class="mt-4"
+        :title="item.resolved_title"
+      >
+        <div>
+          <div v-if="item.tags">
+            <b-badge
+              v-for="itemTag in item.tags"
+              :key="itemTag.tag"
+              pill
+              class="mr-2"
+              variant="info"
+              v-text="itemTag.tag"
+            />
+          </div>
+        </div>
+      </b-card>
+    </div>
+
+    <!-- <div
       v-for="item in items"
       :key="item.item_id"
       class="mb-4 px-4 py-2 border-gray-300 border-2 max-w-lg min-w-min"
     >
       <h3 v-text="item.resolved_title" />
-    </div>
+    </div> -->
   </div>
 </template>
 
