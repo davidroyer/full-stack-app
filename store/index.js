@@ -25,10 +25,6 @@ export const actions = {
    *
    */
   nuxtClientInit({ commit }, { req }) {
-    console.log(
-      'nuxtClientInit ~ nuxtClientInit -> this.$cookies',
-      this.$cookies
-    )
     if (this.$cookies.get('access_token')) {
       console.log('GOT ACCESS TOKEN')
 

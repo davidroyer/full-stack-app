@@ -1,4 +1,4 @@
-# full-stack-app
+# pocketeer-app
 
 ## Build Setup
 

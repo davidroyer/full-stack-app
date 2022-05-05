@@ -41,9 +41,7 @@ export default {
   components: {
     VueTypeaheadBootstrap
   },
-  async asyncData({ app, store }) {
-    const { $cookies, $axios } = app
-
+  async asyncData({ store, $cookies, $axios }) {
     const access_token = $cookies.get('access_token')
 
     store.commit('setUserName', $cookies.get('userName'))

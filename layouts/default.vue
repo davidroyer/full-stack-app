@@ -6,12 +6,6 @@
           <nuxt-link to="/">Home</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/sample-page">About</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/test">Test Page</nuxt-link>
-        </li>
-        <li>
           <nuxt-link to="/dashboard">Dashboard</nuxt-link>
         </li>
       </ul>

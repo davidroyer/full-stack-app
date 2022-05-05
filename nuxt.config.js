@@ -3,7 +3,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'full-stack-app',
+    title: 'pocketeer-app',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -82,6 +82,11 @@ export default {
   serverMiddleware: {
     '/api': '@/api'
   },
+
+  router: {
+    middleware: 'route-controller'
+  },
+
   loadingIndicator: {
     name: 'circle',
     color: '#007bff'
