@@ -20,7 +20,7 @@ export default {
     consumer_key: '92797-bd626bd523c3a7ab5ad3822b',
     redirect_uri: isDev
       ? 'http://localhost:3000/pocket-callback'
-      : 'https://nuxt-full-stack.herokuapp.com/pocket-callback'
+      : 'https://pocketeer.netlify.app/pocket-callback'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   // plugins: ['@/plugins/vue2-editor.client.js'],
